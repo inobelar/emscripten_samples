@@ -1,0 +1,3 @@
+[submodule "imgui_application"]
+	path = samples/shared/imgui_application
+	url = https://github.com/inobelar/imgui_application
