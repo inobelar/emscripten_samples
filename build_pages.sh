@@ -39,3 +39,8 @@ cd ..
 
 # Remove 'build' directory, since it not needed anymore
 rm -rf ./build/
+
+# ------------------------------------------------------------------------------
+
+# Copy 'index.html' into 'docs' directory (for better user experience)
+cp ./web_assets/index.html ./docs/
