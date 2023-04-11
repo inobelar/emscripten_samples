@@ -82,7 +82,7 @@ if(EMSCRIPTEN)
     )
 
     target_link_libraries(${PROJECT_NAME}
-        imgui_application yoga
+        imgui_application Yoga
     )
 
     set(CMAKE_EXECUTABLE_SUFFIX ".html")
@@ -90,7 +90,7 @@ if(EMSCRIPTEN)
 else()
 
     target_link_libraries(${PROJECT_NAME}
-        imgui_application GL yoga dl
+        imgui_application Yoga
     )
 
 endif()
