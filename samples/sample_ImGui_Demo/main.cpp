@@ -4,6 +4,20 @@
 
 class App : public ImGui_Application
 {
+public:
+
+    bool init() override
+    {
+        if( !ImGui_Application::init() )
+        {
+            return false;
+        }
+
+        set_window_title("ImGui Demo");
+
+        return true;
+    }
+
 protected:
 
     void draw_ui() override

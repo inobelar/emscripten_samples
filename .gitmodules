@@ -1,3 +1,6 @@
-[submodule "imgui_application"]
+[submodule "samples/shared/imgui_application"]
 	path = samples/shared/imgui_application
 	url = https://github.com/inobelar/imgui_application
+[submodule "samples/shared/imgui_yoga_inspect"]
+	path = samples/shared/imgui_yoga_inspect
+	url = https://github.com/inobelar/imgui_yoga_inspect

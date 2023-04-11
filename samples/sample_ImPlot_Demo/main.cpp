@@ -8,8 +8,12 @@ public:
 
     bool init() override
     {
-        const bool initialized = ImGui_Application::init();
-        if(!initialized) return false;
+        if( !ImGui_Application::init() )
+        {
+            return false;
+        }
+
+        set_window_title("ImPlot Demo");
 
         ImPlot::CreateContext();
 
