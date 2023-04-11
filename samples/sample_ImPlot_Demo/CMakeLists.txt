@@ -103,7 +103,7 @@ if(EMSCRIPTEN)
 else()
 
     target_link_libraries(${PROJECT_NAME}
-        imgui_application GL
+        imgui_application GL dl
     )
 
 endif()

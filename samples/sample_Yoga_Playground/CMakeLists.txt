@@ -90,7 +90,7 @@ if(EMSCRIPTEN)
 else()
 
     target_link_libraries(${PROJECT_NAME}
-        imgui_application GL yoga
+        imgui_application GL yoga dl
     )
 
 endif()
