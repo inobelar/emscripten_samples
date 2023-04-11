@@ -3,7 +3,9 @@
 ----
 
 <p align="center" style="font-weight: bold;">
-  <a href="https://inobelar.github.io/emscripten_samples/">→ LIVE ←</a>
+  <a href="https://inobelar.github.io/emscripten_samples/">
+    <b>→ LIVE ←</b>
+  </a>
 </p>
 
 ----
