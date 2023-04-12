@@ -20,4 +20,4 @@ add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/sample_ImPlot_Demo/)
 
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/sample_Yoga_Playground/)
 
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/sample_FlatBuffers_Compiler//)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/sample_FlatBuffers_Compiler/)
