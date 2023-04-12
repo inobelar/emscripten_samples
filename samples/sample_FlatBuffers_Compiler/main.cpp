@@ -2,6 +2,8 @@
 
 #include <imgui.h>
 
+#include <imgui_stdlib.h>
+
 // -----------------------------------------------------------------------------
 #include <cstdio>
 #include <memory>
@@ -70,6 +72,11 @@ namespace fs
     {
         std::string name;
         std::string content;
+
+        FileData(const std::string& name_, const std::string& content_)
+            : name(name_)
+            , content(content_)
+        {}
     };
 
     static std::vector<FileData> filesystem;
@@ -139,9 +146,60 @@ protected:
     {
         if(ImGui::Begin("Filesystem"))
         {
-            for(const fs::FileData& f : fs::filesystem)
+            for(auto it = fs::filesystem.begin(); it != fs::filesystem.end(); ++it)
             {
-                
+                fs::FileData& f = (*it);
+
+                constexpr ImGuiTreeNodeFlags tree_node_flags =
+                    ImGuiTreeNodeFlags_AllowItemOverlap;
+
+                const bool tree_opened = ImGui::TreeNodeEx(&f, tree_node_flags, "%s", f.name.c_str());
+                ImGui::SameLine();
+                if( ImGui::SmallButton("[x]") )
+                {
+                    fs::filesystem.erase(it);
+
+                    if(tree_opened) {
+                        ImGui::TreePop();
+                    }
+                    break;
+                }
+
+                if(tree_opened)
+                {
+                    ImGui::InputText("##name", &f.name);
+
+                    ImGui::InputTextMultiline("##content", &f.content);
+
+                    ImGui::TreePop();
+                }
+            }
+
+            ImGui::Separator();
+
+            static std::string new_file_name;
+            static std::string new_file_content;
+
+            ImGui::SetNextItemWidth(-FLT_MIN);
+            if( ImGui::Button("[+]") )
+            {
+                new_file_name.clear();
+                new_file_content.clear();
+                ImGui::OpenPopup("file_add_popup");
+            }
+
+            if( ImGui::BeginPopup("file_add_popup") )
+            {
+                ImGui::InputText("##name", &new_file_name);
+                ImGui::InputTextMultiline("##content", &new_file_content);
+
+                if( ImGui::Button("Add") )
+                {
+                    fs::filesystem.push_back(fs::FileData(new_file_name, new_file_content));
+                    ImGui::CloseCurrentPopup();
+                }
+
+                ImGui::EndPopup();
             }
         }
         ImGui::End();
