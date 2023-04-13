@@ -39,6 +39,8 @@ add_subdirectory(
 
 add_executable(${PROJECT_NAME}
     "${CMAKE_CURRENT_SOURCE_DIR}/main.cpp"
+    
+    "${CMAKE_CURRENT_SOURCE_DIR}/emscripten_utils/emscripten_localfile.cpp"
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC

@@ -10,7 +10,8 @@ message(STATUS "[FlatBuffers] Build type: ${CMAKE_BUILD_TYPE}")
 
 # ----------------------------------------------------------
 
-set(FLATBUFFERS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/flatbuffers-23.3.3/")
+# set(FLATBUFFERS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/flatbuffers-23.3.3/")
+set(FLATBUFFERS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/flatbuffers-fs_additional_funcs/") # Experimental/Patched FlatBuffers to redefine FS funcs
 
 # gRPC - dependencies, needed to compile 'src/idl_gen_grpc.cpp'
 
@@ -77,7 +78,7 @@ set(LIB_SOURCES
     ${FLATBUFFERS_DIR}/src/code_generators.cpp
     ${FLATBUFFERS_DIR}/src/flatc.cpp
 #   ${FLATBUFFERS_DIR}/src/flatc_main.cpp        # <-- This is compiler entry point, but we need library instead of executable, so it's skipped
-    ${FLATBUFFERS_DIR}/src/flathash.cpp
+#   ${FLATBUFFERS_DIR}/src/flathash.cpp          # <-- This file contains 'main()' function for testing hashing. Skipped
     ${FLATBUFFERS_DIR}/src/idl_gen_binary.cpp
     ${FLATBUFFERS_DIR}/src/idl_gen_cpp.cpp
     ${FLATBUFFERS_DIR}/src/idl_gen_csharp.cpp
