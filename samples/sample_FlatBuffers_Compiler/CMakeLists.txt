@@ -9,8 +9,8 @@ set(CMAKE_VERBOSE_MAKEFILE, on)
 
 message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
 
-SET(CMAKE_CXX_STANDARD 11)
-SET(CMAKE_CXX_STANDARD_REQUIRED on)
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED on)
 set(CMAKE_CXX_EXTENSIONS off)
 
 # ------------------------------------------------------------------------------
