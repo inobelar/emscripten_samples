@@ -615,7 +615,21 @@ protected:
 
     void draw_ui() override
     {
-        set_next_window_initial_pos_and_size(20, 20, 460, 420);
+        // Menu Bar
+        if(ImGui::BeginMainMenuBar())
+        {
+            if(ImGui::BeginMenu("About"))
+            {
+                ImGui::Text("Dear ImGui version: %s", IMGUI_VERSION);
+                ImGui::Text("FlatBuffers version: %s", flatbuffers::FLATBUFFERS_VERSION());
+
+                ImGui::EndMenu();
+            }
+
+            ImGui::EndMainMenuBar();
+        }
+
+        set_next_window_initial_pos_and_size(15, 30, 460, 420);
         if(ImGui::Begin("Filesystem"))
         {
             for(auto it = fs::filesystem.begin(); it != fs::filesystem.end(); )
@@ -696,7 +710,7 @@ protected:
         }
         ImGui::End();
         
-        set_next_window_initial_pos_and_size(485, 20, 775, 420);
+        set_next_window_initial_pos_and_size(480, 30, 775, 420);
         if( ImGui::Begin("Compiler") )
         {
             const bool pressed_args = ImGui::InputText("##args", &args, ImGuiInputTextFlags_EnterReturnsTrue );

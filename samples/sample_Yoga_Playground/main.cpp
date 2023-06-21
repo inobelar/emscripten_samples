@@ -2,6 +2,9 @@
 
 #include <yoga/Yoga.h>
 
+#define YOGA_VERSION_COMMIT_FULL  "d06f7b989e02a61d02aa6456b0b61f65b13961d0"
+#define YOGA_VERSION_COMMIT_SHORT "d06f7b9"
+
 #include <ImGui_Yoga/enums.hpp>
 #include <ImGui_Yoga/YGValue_widgets.hpp>
 #include <ImGui_Yoga/YGNode_draw_recursive.hpp>
@@ -398,6 +401,14 @@ protected:
                 ImGui::MenuItem("Show Yoga nodes view", nullptr, &show_nodes_view);
                 ImGui::MenuItem("Show Yoga nodes tree", nullptr, &show_nodes_tree);
                 ImGui::MenuItem("Show Yoga node properties", nullptr, &show_node_properties);
+
+                ImGui::EndMenu();
+            }
+
+            if(ImGui::BeginMenu("About"))
+            {
+                ImGui::Text("Dear ImGui version: %s", IMGUI_VERSION);
+                ImGui::Text("Yoga version (commit): %s", YOGA_VERSION_COMMIT_SHORT);
 
                 ImGui::EndMenu();
             }
