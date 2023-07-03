@@ -1,7 +1,5 @@
 #include <imgui_app/ImGui_Application.hpp>
 
-#include <cctype> // Needed, since in ImSpinner used 'isalpha', but related file not included. TODO: Must be fixed later
-
 #define IMSPINNER_DEMO
 #include <imspinner.h>
 
