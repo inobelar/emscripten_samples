@@ -32,7 +32,7 @@ endif()
 # ------------------------------------------------------------------------------
 # ImPlot library
 
-set(IMPLOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../shared/implot/implot-0.14/")
+set(IMPLOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../shared/implot/implot-master/")
 
 set(IMPLOT_INCLUDE_DIRECTORIES
     ${IMPLOT_DIR}
@@ -56,10 +56,6 @@ add_executable(${PROJECT_NAME}
     "${CMAKE_CURRENT_SOURCE_DIR}/main.cpp"
 
     ${IMPLOT_HEADERS} ${IMPLOT_SOURCES}
-)
-
-target_compile_definitions(${PROJECT_NAME} PRIVATE
-    IMGUI_DEFINE_MATH_OPERATORS
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC
