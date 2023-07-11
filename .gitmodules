@@ -4,3 +4,9 @@
 [submodule "samples/shared/imgui_yoga_inspect"]
 	path = samples/shared/imgui_yoga_inspect
 	url = https://github.com/inobelar/imgui_yoga_inspect
+[submodule "samples/shared/taffy_cpp"]
+	path = samples/shared/taffy_cpp
+	url = https://github.com/inobelar/taffy_cpp
+[submodule "samples/shared/imgui_taffy_cpp_inspect"]
+	path = samples/shared/imgui_taffy_cpp_inspect
+	url = https://github.com/inobelar/imgui_taffy_cpp_inspect

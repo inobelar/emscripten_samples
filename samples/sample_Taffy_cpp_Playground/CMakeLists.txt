@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.22.1)
 
-project(sample_Yoga_Playground)
+project(sample_Taffy_cpp_Playground)
 
 # ------------------------------------------------------------------------------
 
@@ -31,28 +31,37 @@ endif()
 
 # ------------------------------------------------------------------------------
 
-# Add 'Yoga' library
+# Add 'taffy_cpp' library
 add_subdirectory(
-    ${CMAKE_CURRENT_SOURCE_DIR}/../shared/yoga
-    "yoga_build_for_${PROJECT_NAME}"
+    ${CMAKE_CURRENT_SOURCE_DIR}/../shared/taffy_cpp
+    "taffy_cpp_build_for_${PROJECT_NAME}"
 )
 
-# Add 'ImGui_Yoga' library
-include("${CMAKE_CURRENT_SOURCE_DIR}/../shared/imgui_yoga_inspect/ImGui_Yoga.cmake")
+# ------------------------------------------------------------------------------
+
+# Add 'ImGui_Taffy' library
+include("${CMAKE_CURRENT_SOURCE_DIR}/../shared/imgui_taffy_cpp_inspect/ImGui_Taffy.cmake")
 
 add_executable(${PROJECT_NAME}
     "${CMAKE_CURRENT_SOURCE_DIR}/main.cpp"
 
-    ${IMGUI_YOGA_HEADERS} ${IMGUI_YOGA_SOURCES}
+    ${IMGUI_TAFFY_HEADERS} ${IMGUI_TAFFY_SOURCES}
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC
     ${IMGUI_APPLICATION_INCLUDE_DIRECTORIES}
 
-    ${YOGA_INCLUDE_DIRECTORIES}
-
-    ${IMGUI_YOGA_INCLUDE_DIRECTORIES}
+    ${IMGUI_TAFFY_INCLUDE_DIRECTORIES}
 )
+
+# ------------------------------------------------------------------------------
+# Enable 'taffy_cpp' features
+
+target_compile_definitions(${PROJECT_NAME} PRIVATE TAFFY_FEATURE_TAFFY_TREE)
+
+target_compile_definitions(${PROJECT_NAME} PRIVATE TAFFY_FEATURE_BLOCK_LAYOUT)
+target_compile_definitions(${PROJECT_NAME} PRIVATE TAFFY_FEATURE_FLEXBOX)
+target_compile_definitions(${PROJECT_NAME} PRIVATE TAFFY_FEATURE_GRID)
 
 # ------------------------------------------------------------------------------
 
@@ -81,7 +90,7 @@ if(EMSCRIPTEN)
     )
 
     target_link_libraries(${PROJECT_NAME}
-        imgui_application Yoga
+        imgui_application taffy_cpp
     )
 
     set(CMAKE_EXECUTABLE_SUFFIX ".html")
@@ -89,7 +98,7 @@ if(EMSCRIPTEN)
 else()
 
     target_link_libraries(${PROJECT_NAME}
-        imgui_application Yoga
+        imgui_application taffy_cpp
     )
 
 endif()
@@ -97,3 +106,4 @@ endif()
 # ------------------------------------------------------------------------------
 
 install(TARGETS ${PROJECT_NAME})
+
